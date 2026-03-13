@@ -1,5 +1,6 @@
 {
-  "name": "vanilla-js-vite-starter",
+  "name": "static-sites-vite-starter",
+  "description": "Professional starter kit for static websites with automated asset optimization",
   "private": true,
   "version": "0.0.0",
   "type": "module",
