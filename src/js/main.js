@@ -14,7 +14,7 @@ import { initSliders } from "./modules/sliders.js";
 import { initAppearance } from "./animations/appearance.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Женька сообщает: Сборка готова, Andrew! 🚀");
+  console.log("The project works");
 
   initBurger();
   initSliders();

@@ -47,7 +47,7 @@
   $intercept: calc($min-px - $slope * $min-width);
   $intercept-rem: f.rem($intercept);
 
-  // Вот здесь магия: #{$prop} подставит любое свойство, которое ты напишешь
+  //  #{$prop} will substitute any property you write
   #{$prop}: clamp(
     #{$min-rem}, 
     #{$intercept-rem} + #{$slope * 100}vw, 
@@ -67,20 +67,20 @@
 // mixin for theme changing
 
 @mixin apply-theme($theme-map) {
-  // Мы перебираем мапу и создаем кастомные свойства браузера
+  // We iterate over the map and create custom browser properties
   --theme-bg: #{map.get($theme-map, "bg")};
   --theme-text: #{map.get($theme-map, "text")};
   --theme-accent: #{map.get($theme-map, "accent")};
 
-  // Сразу говорим элементам использовать эти переменные
+  // We immediately tell the elements to use these variables
   background-color: var(--theme-bg);
   color: var(--theme-text);
   
-  // Добавим плавность, чтобы глазам было приятно
+  // Let's add some smoothness to make it pleasing to the eyes.
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-// миксин для анимаций 
+// mixin for animations
 
 @mixin fade-in($duration: 0.5s, $delay: 0s) {
   opacity: 0;

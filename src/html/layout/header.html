@@ -1,6 +1,8 @@
 <header class="header">
-  <div class="header__inner">
-    <a class="logo" href="#">Logo </a>
+  <div class="header__inner"> <a class="logo" href="/">
+      Logo
+    </a>
+    
     <nav class="nav">
       <ul class="nav__list">
         <li class="nav__item"><a class="nav__link" href="#!">nav link</a></li>
@@ -8,9 +10,13 @@
         <li class="nav__item"><a class="nav__link" href="#!">nav link</a></li>
       </ul>
     </nav>
-    <svg class="icon-hero">
-      <use xlink:href="#icons-phone"></use>
-    </svg>
-    <load src="src/html/components/burger.html" />
+
+    <a href="tel:+12345678" class="header__phone">
+      <svg class="icon-phone" width="20" height="20">
+        <use href="#icons-phone"></use>
+      </svg>
+    </a>
+
+    <load src="/src/html/components/burger.html" />
   </div>
 </header>

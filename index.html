@@ -1,28 +1,53 @@
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/vite.svg"
-    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>vanilla-js-vite-starter</title>
+    <meta
+      name="description"
+      content=""
+    />
+    <meta
+      name="keywords"
+      content=""
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon.png"
+    />
+    <title>static-sites-vite-starter</title>
   </head>
   <body>
-    <load src="src/html/layout/header.html" />
-    <load src="src/html/layout/footer.html" />
+    <!-- the way to use vite-plugin-html-inject -->
+    <load src="/src/html/layout/header.html" />
 
-    
-<picture>
-  <source srcset="./src/assets/img/webp/chernigiv.webp" type="image/webp">
-  <img class="image" src="./src/assets/img/raw/chernigiv.png" alt="chernigiv" loading="lazy" width="150" height="188">
-</picture>
-  
+    <main>
+      <!-- ways to the images -->
+      <picture>
+        <source
+          srcset="/src/assets/img/webp/beach.webp"
+          type="image/webp"
+        />
+        <img
+          class="image"
+          src="/src/assets/img/raw/beach.jpg"
+          alt="beach"
+          loading="lazy"
+          width="1100"
+          height="770"
+        />
+      </picture>
+    </main>
+    <!-- the way to use vite-plugin-html-inject -->
+    <load src="/src/html/layout/footer.html" />
+
+
     <script
       type="module"
       src="/src/js/main.js"

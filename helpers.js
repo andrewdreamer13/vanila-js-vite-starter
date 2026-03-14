@@ -1,3 +1,4 @@
+
 import sharp from "sharp";
 import fs from "fs";
 import path from "path";
@@ -14,9 +15,25 @@ const paths = {
   },
 };
 
-// Function for creating folders if they do not exist
+// Creating folders
 const ensureDir = (dir) => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+};
+
+// Cleaning folders before build
+const cleanOutputDirs = () => {
+  [paths.img.out, paths.fonts.out].forEach((dir) => {
+    if (fs.existsSync(dir)) {
+      const files = fs.readdirSync(dir);
+      for (const file of files) {
+        //Do not delete hidden files like .gitkeep if they exist.
+        if (file !== ".gitkeep") {
+          fs.unlinkSync(path.join(dir, file));
+        }
+      }
+    }
+  });
+  console.log("🧹 Output folders cleaned (webp & woff2)");
 };
 
 // 1. Image conversion
@@ -35,7 +52,7 @@ async function convertImages() {
   }
 }
 
-//2. Font conversion
+// 2. Font conversion
 function convertFonts() {
   ensureDir(paths.fonts.out);
   const files = fs.readdirSync(paths.fonts.in);
@@ -57,37 +74,29 @@ function convertFonts() {
 (async () => {
   console.log("🚀 Starting assets preparation...");
   try {
+    // First, we clean out the old
+    cleanOutputDirs();
+
+    // Then we generate a new one
     await convertImages();
     convertFonts();
-    console.log("✨ All assets are ready!");
+
+    console.log(" All assets are ready!");
   } catch (err) {
     console.error("❌ Error during preparation:", err);
   }
 })();
 
-// import sharp from 'sharp';
-// import fs from 'fs';
-// import path from 'path';
 
-// const inputDir = 'src/assets/img'; // откуда берем
-// const outputDir = 'src/assets/img/webp'; // куда кладем
 
-// if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-// fs.readdirSync(inputDir).forEach(file => {
-//   if (/\.(png|jpe?g|tif)$/i.test(file)) {
-//     const fileName = path.parse(file).name;
-//     sharp(`${inputDir}/${file}`)
-//       .webp({ quality: 80 })
-//       .toFile(`${outputDir}/${fileName}.webp`)
-//       .then(() => console.log(`✅ Сконвертировано: ${file}`))
-//       .catch(err => console.error(`❌ Ошибка в ${file}`, err));
-//   }
-// });
 
-// "scripts": {
-//   "dev": "vite",
-//   "build": "vite build",
-//   "preview": "vite preview",
-//   "clear": "rd /s /q dist && rd /s /q node_modules && npm install"
-// },
+
+
+
+
+
+
+
+
+

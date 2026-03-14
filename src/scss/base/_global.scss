@@ -3,16 +3,16 @@
 
 
 body {
-  // 1. Сначала общие настройки (шрифты, база), которые не зависят от темы
+  // 1.First, general settings (fonts, base), which are not theme-dependent
   font-family: t.$font-main, t.$font-alt; 
   font-size: t.$fs-base;
   font-weight: t.$fw-reg;
-  line-height: 1.5; // Хороший тон для читаемости
+  line-height: 1.5;
 
-  // 2. Включаем светлую тему по умолчанию
+  // 2. Enable the light theme by default
   @include t.apply-theme(t.$light-theme);
 
-  // 3. Включаем темную тему по условию (через класс)
+  // 3.Enable dark theme conditionally (via class)
   &.dark-mode {
     @include t.apply-theme(t.$dark-theme);
   }
