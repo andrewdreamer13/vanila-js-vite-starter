@@ -22,6 +22,15 @@
       href="/favicon.png"
     />
     <title>static-sites-vite-starter</title>
+    <script>
+  // Surgical precision: instant theme installation
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const theme = savedTheme || systemTheme;
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
   </head>
   <body>
     <!-- the way to use vite-plugin-html-inject -->
@@ -47,7 +56,12 @@
     <!-- the way to use vite-plugin-html-inject -->
     <load src="/src/html/layout/footer.html" />
 
-
+    <div class="card">
+      <h2 class="card__title">Card title</h2>
+      <p class="card__text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam sequi ipsa ex libero dicta fugit, similique molestiae officia omnis iste?
+      </p>
+    </div>
     <script
       type="module"
       src="/src/js/main.js"

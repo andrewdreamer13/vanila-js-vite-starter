@@ -1,21 +1,37 @@
 @use "../tools" as t;
 
 
+:root {
+  @include t.generate-theme(t.$light-theme);
+
+  &[data-theme="dark"] {
+    @include t.generate-theme(t.$dark-theme);
+  }
+}
+
+
 
 body {
-  // 1.First, general settings (fonts, base), which are not theme-dependent
-  font-family: t.$font-main, t.$font-alt; 
+   font-family: t.$font-main, t.$font-alt; 
   font-size: t.$fs-base;
   font-weight: t.$fw-reg;
-  line-height: 1.5;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  // 2. Enable the light theme by default
-  @include t.apply-theme(t.$light-theme);
+.card {
+  margin: 0 auto;
+  width: 250px;
+  padding: 10px;
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+}
 
-  // 3.Enable dark theme conditionally (via class)
-  &.dark-mode {
-    @include t.apply-theme(t.$dark-theme);
-  }
+.btn-primary {
+  background-color: var(--clr-accent);
+  color: var(--clr-text);
+
 }
 
 

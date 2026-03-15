@@ -80,6 +80,14 @@
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+// mixin for theme changing
+
+@mixin generate-theme($theme-map) {
+  @each $key, $value in $theme-map {
+    --clr-#{$key}: #{$value};
+  }
+}
+
 // mixin for animations
 
 @mixin fade-in($duration: 0.5s, $delay: 0s) {

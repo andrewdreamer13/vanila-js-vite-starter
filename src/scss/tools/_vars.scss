@@ -27,14 +27,31 @@ $clr-error: #ff4d4d;
 $clr-success: #2ecc71;
 
 // 4. themes
+
 $light-theme: (
-  "bg": #3b3737,
-  "text": #1316ca,  
-  "accent": #4AF6CD 
+  "bg": #ffffff,
+  "surface": #f4f4f4,
+  "text": #1a1a1a,
+  "text-muted": #666666,
+  "accent": #4af6cd,
+  "border": #dddddd
 );
 
 $dark-theme: (
-  "bg": #171919,    
-  "text": #ffffff, 
-  "accent": #4AF6CD 
+  "bg": #171919,
+  "surface": #252828,
+  "text": #ffffff,
+  "text-muted": #a0a0a0,
+  "accent": #4af6cd,
+  "border": #333333
 );
+
+
+
+// Переменная,За что отвечает
+// --clr-bg,Главный фон страницы (body).
+// --clr-surface,"Фон вложенных элементов: карточки, модалки, плашки."
+// --clr-text,Основной текст (высокий контраст).
+// --clr-text-muted,"Второстепенный текст, подписи, плейсхолдеры (средний контраст)."
+// --clr-accent,"Главный акцентный цвет (кнопки, активные ссылки)."
+// --clr-border,"Цвет границ, разделителей, инпутов."
